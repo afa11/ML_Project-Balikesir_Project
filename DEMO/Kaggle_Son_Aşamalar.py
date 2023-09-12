@@ -20,11 +20,11 @@ def save(test_predictions, ids , outputcolumn1name, outputcolumn2name, outputfil
 
 
 
-def prediction(model, param_grid, X, y, X_test):
+def prediction(model, param_grid, X, y, X_test, n_splits=10):
   from sklearn.model_selection import GridSearchCV, StratifiedKFold
 
 
-  grid_search = GridSearchCV(model, param_grid, cv=StratifiedKFold(n_splits=10) , n_jobs=-1)
+  grid_search = GridSearchCV(model, param_grid, cv=StratifiedKFold(n_splits=n_splits) , n_jobs=-1)
 
   grid_search.fit(X, y)
 
@@ -34,3 +34,13 @@ def prediction(model, param_grid, X, y, X_test):
   test_predictions = best_model.predict(X_test)
 
   return test_predictions
+
+
+
+def larger_row():
+  import pandas as pd
+  pd.options.display.max_rows = None  
+
+def larger_column():
+  import pandas as pd
+  pd.options.display.max_column = None  
