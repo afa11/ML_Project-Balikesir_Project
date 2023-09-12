@@ -43,4 +43,12 @@ def larger_row():
 
 def larger_column():
   import pandas as pd
-  pd.options.display.max_column = None  
+  pd.options.display.max_column = None
+
+def smaller_row(count=10):
+  import pandas as pd
+  pd.options.display.max_rows = count
+
+def smaller_column(count=10):
+  import pandas as pd
+  pd.options.display.max_column = count
