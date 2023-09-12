@@ -52,3 +52,18 @@ def smaller_row(count=10):
 def smaller_column(count=10):
   import pandas as pd
   pd.options.display.max_column = count
+
+
+def split_dataframe(df, middle_index):
+    
+  # Split the DataFrame into two parts
+  first_half = df.iloc[:middle_index]
+  second_half = df.iloc[middle_index:]
+
+  return first_half, second_half
+
+
+def merge_dataset_vertically(df1, df2):
+  import pandas as pd
+  merged_dataset = pd.concat([df1,df2], axis=0)
+  return merged_dataset
